@@ -10,8 +10,6 @@ os.environ["OPENAI_API_KEY"] ='gsk_BLznuEu8xX1ZRD1kDGbRWGdyb3FY2FWqwuj9a80oTJgIS
 
 llm = Ollama(model="llama3")
 
-
-
 class MyClient(discord.Client):
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
@@ -26,7 +24,6 @@ class MyClient(discord.Client):
         # Remove the command from the message
             striptted_message = message.content[len('!'):].strip()
             await message.channel.send(llm.invoke(striptted_message, stop=['<|eot_id|>']))
-
 
 
 intents = discord.Intents.default()
